@@ -24,7 +24,7 @@ exc.indi = readRDS("excindi.RDS")
 exc.dyad = readRDS("excdyad.RDS")
 
 # synchronisation data - information per dyad
-df.dyad = read_csv("ML_sync-dyad_230616.csv")
+df.dyad = read_csv("ML_sync-dyad.csv")
 
 # set dyads with low quality silence detection to NA
 for (e in 1:length(exc.dyad)) {
@@ -82,7 +82,7 @@ df.indi = df.indi %>% select(-"1", -dyad1, -dyad2, -soundname)
 # Individual synchronisation ----------------------------------------------
 
 # load data
-df.sync = read_csv("ML_sync-indi_230616.csv")
+df.sync = read_csv("ML_sync-indi.csv")
 
 # set dyads with one participant with low quality silence detection to NA
 for (e in 1:length(exc.dyad)) {
@@ -118,7 +118,7 @@ rm(str.dyad)
 # Turn-taking gaps --------------------------------------------------------
 
 # load data
-df.turn = read_csv("ML_turns_230616.csv")
+df.turn = read_csv("ML_turns.csv")
 df.turn$name = paste(df.turn$dyad, df.turn$task, sep = "_")
 
 # set dyads with one participant with low quality silence detection to NA
@@ -170,8 +170,8 @@ df.dyad = merge(df.dyad, df.sel) %>%
 rm(df.sel)
 
 # save it all
-write_csv(df.dyad, 'ML_dyad_230616.csv')
-write_csv(df.indi, 'ML_indi_230616.csv')
+write_csv(df.dyad, 'ML_dyad.csv')
+write_csv(df.indi, 'ML_indi.csv')
 
 # Convert to JASP ---------------------------------------------------------
 
@@ -227,5 +227,5 @@ for (v in ls.v) {
 
 # Save merged csv files ---------------------------------------------------
 
-write_csv(df.dyad_JASP, 'ML_dyad_JASP_230616.csv')
-write_csv(df.indi_JASP, 'ML_indi_JASP_230616.csv')
+write_csv(df.dyad_JASP, 'ML_dyad_JASP.csv')
+write_csv(df.indi_JASP, 'ML_indi_JASP.csv')

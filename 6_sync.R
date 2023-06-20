@@ -23,7 +23,7 @@ cols = c("name", "pit_sync_MEA", "int_sync_MEA")
 df.dyad = data.frame(matrix(nrow = 0, ncol = length(cols)))
 colnames(df.dyad) = cols
 
-df.turn = read_csv("ML_turns_230616.csv")
+df.turn = read_csv("ML_turns.csv")
 df.turn$name = paste(df.turn$dyad, df.turn$task, sep = "_")
 
 # get rid of turns that start in the first 10 seconds
@@ -46,10 +46,10 @@ for (i in 1:nrow(df.turn)) {
   }
   if (reload) {
     fl_L = list.files(pattern = paste("^ch_L.*", df.turn$dyad[i] ,".*",
-                                      df.turn$task[i], ".*_cont\\.csv$",
+                                      df.turn$task[i], ".*cont\\.csv$",
                                       sep = ""))
     fl_R = list.files(pattern = paste("^ch_R.*", df.turn$dyad[i] ,".*",
-                                      df.turn$task[i], ".*_cont\\.csv$",
+                                      df.turn$task[i], ".*cont\\.csv$",
                                       sep = ""))
     df_L = read_delim(fl_L, delim = ";") %>%
       mutate(across(time, ~ .x * 1000)) %>%
@@ -133,6 +133,6 @@ df.indi = df.turn %>% group_by(name, speaker) %>%
 
 # Save synchronisation data frame -----------------------------------------
 
-write_csv(df.turn, "ML_turns_230616.csv")
-write_csv(df.indi, "ML_sync-indi_230616.csv")
-write_csv(df.dyad, "ML_sync-dyad_230616.csv")
+write_csv(df.turn, "ML_turns.csv")
+write_csv(df.indi, "ML_sync-indi.csv")
+write_csv(df.dyad, "ML_sync-dyad.csv")

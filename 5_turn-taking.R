@@ -84,11 +84,11 @@ df.out = df.sound %>%
     ttg = start_turn - lag(end_turn)
   )
 
-write_csv(df.out, file = "ML_turns_230616.csv")
+write_csv(df.out, file = "ML_turns.csv")
 
 # Compute nsyl per turn ---------------------------------------------------
 
-df.out = read_csv(file = "ML_turns_230616.csv", show_col_types = F)
+df.out = read_csv(file = "ML_turns.csv", show_col_types = F)
 
 # create an empty column for number of syllables in each turn
 df.out = df.out %>%
@@ -135,4 +135,4 @@ df.out = df.out %>%
 
 # Save output data frame --------------------------------------------------
 
-write_csv(df.out, "ML_turns_230616.csv")
+write_csv(df.out, "ML_turns.csv")
