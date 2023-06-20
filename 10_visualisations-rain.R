@@ -16,13 +16,13 @@ setwd('/home/emba/Documents/ML_speech/Data/')
 
 # Load data ---------------------------------------------------------------
 
-df.dyad = read_csv('ML_dyad_230616.csv') %>%
+df.dyad = read_csv('ML_dyad.csv') %>%
   mutate(across(where(is.character),as.factor))
 
-df.indi = read_csv('ML_indi_230616.csv') %>%
+df.indi = read_csv('ML_indi.csv') %>%
   mutate(across(where(is.character),as.factor)) %>%
   mutate(
-    `diagnostic status` = recode(speaker, "ASD" = "autistic", "TD" = "non-autistic")
+    `diagnostic status` = recode(`diagnostic status`, "ASD" = "autistic", "TD" = "non-autistic")
   ) 
 
 bl = "#0072B2"
