@@ -38,7 +38,7 @@ df.dyad = df.dyad %>% select(-c(name, dyad1, dyad2))
 # Pitch intensity and prosodic information --------------------------------
 
 # pitch-intensity and prosodic - information per individual
-df.pint = read_delim("ML_pitch_intensity.csv", delim = ";")
+df.pint = read_csv("ML_pitch_intensity.csv")
 df.pros = read_csv("ML_prosodic_extraction.csv")
 colnames(df.pros) = c("soundname", "nsyll", "npause", "dur", "pho", "spr",
                       "art", "asd")
@@ -224,6 +224,7 @@ for (v in ls.v) {
     }
   }
 }
+# None.
 
 # Save merged csv files ---------------------------------------------------
 
