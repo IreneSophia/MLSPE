@@ -55,7 +55,10 @@ for (i in 2:nrow(df.sound)) {
     df.sound$delete[i] = T
   } 
 }
+df.sound.engulfed = df.sound %>% filter(delete == T)
 df.sound = df.sound %>% filter(delete == F) %>% select(-c(delete))
+
+write_csv(df.sound.engulfed, file = "ML_engulfedsounds.csv")
 
 # identify turns: here, turns are defined as starting with the first sounding
 # instance of a person until the end of the last sounding instance of this 
