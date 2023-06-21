@@ -40,9 +40,9 @@ gr = "#009E73"
 
 This R Markdown document analyses pseudosynchronisation in the speech data of the ML study. To run this script, one needs the following file: 
 
-* "ML_turns_230616.csv" which contains all turn information needed for section sliding
-* "ML_indi_230616.csv" which contains the actual synchronisation values for comparison
-* "ML_dyad_230616.csv" which contains the actual synchrony values for comparison
+* "ML_turns.csv" which contains all turn information needed for section sliding
+* "ML_indi.csv" which contains the actual synchronisation values for comparison
+* "ML_dyad.csv" which contains the actual synchrony values for comparison
 
 ## Software versions
 
@@ -67,7 +67,7 @@ For each speaker in each task, the order of the previous turns are shuffled `r n
 
 ```{r indi_turn}
 
-filename = "ML_indi_st-shuffle_230616.RData"
+filename = "ML_indi_st-shuffle.RData"
 
 if (!file.exists(filename)) {
   
@@ -76,7 +76,7 @@ if (!file.exists(filename)) {
   psyncpit = c()
   psyncart = c()
   
-  df = read_csv("ML_turns_230616.csv", show_col_types = F) %>% 
+  df = read_csv("ML_turns.csv", show_col_types = F) %>% 
     mutate(speaker = paste(name, speaker, sep = "_")) %>%
     select(c(speaker, pit_turn, pit_prev_turn, 
              int_turn, int_prev_turn, 
@@ -105,7 +105,7 @@ if (!file.exists(filename)) {
 
 ```{r indi_stats}
 
-df.sync = read_csv("ML_indi_230616.csv", show_col_types = F) %>% 
+df.sync = read_csv("ML_indi.csv", show_col_types = F) %>% 
   separate(
     subject, c("ML", "dyad", "speaker")
   ) %>%
@@ -182,7 +182,7 @@ For each speaker in each task, their time series is shuffled `r n/2` times and t
 
 ```{r dyad-s}
 
-filename = "ML_dyad_s-shuffle_230616.RData"
+filename = "ML_dyad_s-shuffle.RData"
 
 if (!file.exists(filename)) {
   
@@ -192,7 +192,7 @@ if (!file.exists(filename)) {
   colnames(df.psync) = cols
   
   # load actual sync values
-  df.dyad = read_csv("ML_dyad_230616.csv", show_col_types = F)
+  df.dyad = read_csv("ML_dyad.csv", show_col_types = F)
   
   sr = 100
   
@@ -267,7 +267,7 @@ if (!file.exists(filename)) {
 
 ```{r dyad-s_stats, message=F}
 
-df.sync = read_csv("ML_dyad_230616.csv", show_col_types = F) %>% 
+df.sync = read_csv("ML_dyad.csv", show_col_types = F) %>% 
   select(c(dyad, `dyad type`, task, pit_sync_MEA, int_sync_MEA))
 
 df.agg  = df.psync %>% 
