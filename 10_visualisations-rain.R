@@ -122,7 +122,7 @@ p_leg = ggplot(df.indi, aes(x = task, y = int_sync, fill = `diagnostic status`))
 legend = as_ggplot(get_legend(p_leg))
 
 p = ggarrange(pit_var, int_var, art, pit_sync, int_sync, art_sync, legend,
-          #labels = c("A", "B", "C"),
+          labels = c("(A)", "(B)", "(C)", "(D)", "(E)", "(F)", ""),
           ncol = 3, nrow = 3)
 
 ggsave("indi.png", width = 3500, height = 2500, units = "px")
@@ -191,7 +191,7 @@ p_leg = ggplot(df.dyad, aes(x = task, y = int_sync_MEA, fill = `dyad type`)) +
 legend = as_ggplot(get_legend(p_leg))
 
 p = ggarrange(str, ttg, legend, pit_sync_MEA, int_sync_MEA,
-              #labels = c("A", "B", "C"),
+              labels = c("(A)", "(B)", "", "(C)", "(D)", "(E)"),
               ncol = 3, nrow = 2)
 
 ggsave("dyad.png", width = 3500, height = 2500, units = "px")
