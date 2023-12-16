@@ -3,6 +3,7 @@
 This repository contains the preprocessing pipeline from the *ML_speech* study. This pipeline has been developed by me, Irene Sophia Plank, at the NEVIA lab (https://nevialab.com/). It also contains code from an earlier version by Afton Nelson. The study has been preregistrated on OSF (https://osf.io/jhetr), and investigates speech and interactional features of autistic and non-autistic people in dyadic communication. In this project, we aim to use automatic extraction of speech (acoustic and prosodic) as well as interactional features.
 
 These results have been published: 
+
 Plank IS, Koehler JC, Nelson AM, Koutsouleris N and Falter-Wagner CM (2023) Automated extraction of speech and turn-taking parameters in autism allows for diagnostic classification using a multivariable prediction model. Front. Psychiatry. 14:1257569. doi: 10.3389/fpsyt.2023.1257569
 
 The data was collected at the Medical Faculty of the LMU Munich and is part of a larger machine learning project on autism. Strangers were paired in either heterogeneous (one autistic, one non-autistic interaction partner) or homogeneous (two non-autistic interaction partners) dyads and asked to have two ten-minute conversations, one about their hobbies and one to collaboratively plan a menu with foods and drinks that they both dislike. We collected audio, video and psychophysiological data during these conversation. The analysis of the facial expressions and the body movement has been published as a preprint (Koehler et al., 2022: https://doi.org/10.1101/2022.12.20.22283571).
